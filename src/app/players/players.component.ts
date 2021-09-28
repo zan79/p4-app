@@ -22,10 +22,10 @@ export class PlayersComponent implements OnInit {
   displayAll() {
     this.filter = 'all';
   }
-  displayMale() {
-    this.filter = 'male';
+  displayVIP() {
+    this.filter = 'vip';
   }
-  displayFemale() {
-    this.filter = 'female';
+  displayFree() {
+    this.filter = 'free';
   }
 }

@@ -1,18 +1,20 @@
 <div class="col-md-6 offset-3 mt-3">
     <div class="card bg-secondary">
-        <div class="card-header bg-primary text-light">
+        <div class="card-header bg-dark text-light">
             <span class="float-start"><h2 class="card-title">{{ title }}</h2></span>
             <span class="float-end">
-                <button class="btn btn-danger btn-md m-1 fw-bold" (click)="displayAll()">A</button>
-                <button class="btn btn-danger btn-md m-1 fw-bold" (click)="displayMale()">M</button>
-                <button class="btn btn-danger btn-md m-1 fw-bold" (click)="displayFemale()">F</button>
+                <button class="btn btn-success btn-md m-1 fw-bold" (click)="displayFree()">F2P</button>
+                <button class="btn btn-warning btn-md m-1 fw-bold" (click)="displayVIP()">VIP</button>
+                <button class="btn btn-danger btn-md m-1 fw-bold" (click)="displayAll()">ALL</button>
             </span>
         </div>
         <div class="card-body">
             <div class="list-group" *ngFor="let player of players">
-                <li class="list-group-item mt-1" *ngIf="filter == 'all' || filter == player.gender">
-                    <span class="float-start fw-bold">{{player.name}}</span>
-                    <span class="float-end fw-bold text-success">{{player.age + " years old"}}</span>
+                <li class="list-group-item fw-bold mt-1" *ngIf="filter == 'all' || filter == player.type">
+                    <span class="text-warning btn-dark btn-sm me-2" *ngIf="player.type=='vip'">VIP</span>
+                    <span class="mx-4" *ngIf="player.type=='free'"></span>
+                    <span class="">{{ player.name }}</span>
+                    <span class="float-end text-success">{{ "LVL"+player.lvl }}</span>
                 </li>
             </div>
         </div>
